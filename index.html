@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>โปรแกรมสุ่มตัวเลข</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        /* หัวข้อ */
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            text-align: center;
+            justify-content: center;
+        }
+
+        /* ส่วนแสดงตัวเลข ให้เรียงแนวนอน */
+        #display-area {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* สไตล์สำหรับกล่องใส่รูปภาพ */
+        .number-box {
+            width: 80px;
+            height: 100px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            /* ถ้าอยากให้มีพื้นหลังหรือขอบแบบในรูป สามารถเพิ่มตรงนี้ได้ครับ */
+        }
+
+        /* ตกแต่งรูปภาพให้พอดีกล่อง */
+        .number-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        button {
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body onload="generateNumbers()">
+    <div class="container">
+        <h2>สุ่มตัวเลข</h2>
+
+        <div id="display-area">
+            <div class="number-box"><img id="img0" src="" alt="?"></div>
+            <div class="number-box"><img id="img1" src="" alt="?"></div>
+            <div class="number-box"><img id="img2" src="" alt="?"></div>
+            <div class="number-box"><img id="img3" src="" alt="?"></div>
+            <div class="number-box"><img id="img4" src="" alt="?"></div>
+            <div class="number-box"><img id="img5" src="" alt="?"></div>
+        </div>
+        <button onclick="generateNumbers()">สร้าง</button>
+    </div>
+
+    <script>
+        function generateNumbers() {
+            for (let i = 0; i < 6; i++) {
+                // สุ่มตัวเลข 0-9
+                const randomNumber = Math.floor(Math.random() * 10);
+
+                // ค้นหาแท็ก img ตาม id และเปลี่ยน src ตาม URL ที่คุณให้มา
+                document.getElementById('img' + i).src = "http://webdev.it.kmitl.ac.th/labdocs/lab3/images/" + randomNumber + ".png";
+            }
+        }
+    </script>
+
+</body>
+</html>
