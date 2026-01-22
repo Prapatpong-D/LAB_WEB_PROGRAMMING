@@ -50,3 +50,4 @@ fetch ('sss.json')
     .then(Response=>Response.json())
     .then(dat=>oil(dat))
     .catch(error=> console.error('eror', error));
+
