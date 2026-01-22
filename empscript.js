@@ -1,12 +1,5 @@
 function ilikeurcutg(dat){
     let home =document.getElementById('00')
-    let main = document.createElement('tr')
-    let inmain =document.createElement('td')
-    let txt =document.createTextNode('kuy')
-    inmain.appendChild(txt)
-    main.appendChild(inmain)
-    home.appendChild(main)
-
 
     for (let i=0;i<dat.length;i++)
     {
