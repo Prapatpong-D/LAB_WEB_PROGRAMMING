@@ -1,0 +1,12 @@
+.tab {
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    text-align: left;
+}
+
+table,th, tr, td {
+    border: 5px solid black;
+    border-collapse: collapse;
+    padding: 0.25rem;
+}
