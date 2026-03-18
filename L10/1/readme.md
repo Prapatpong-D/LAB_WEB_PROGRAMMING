@@ -22,4 +22,4 @@ app.get('/api/todo',(req,res)=>{
 9.วิธีจัดกึ่งกลางอย่าลืมกำหนดความสูง 100vh
 10.ระวัง พาธ ตอนจะ fetch api
 11.ดาต้าเบสคำสั่ง db.get เอาแถวเดียว db.all เอาทุกแถว db.run = INSERT / UPDATE / DELETE / CREATE TABLE
-12.วิธีกดไปอีกหน้า <a href="/createtohere"></a> a href แล้วใส่ชื่อ path ย่อใน index.js ให้สร้างชื่อพาธนั้นไว้ 
+12.วิธีกดไปอีกหน้า <a href="/createtohere"></a> a href แล้วใส่ชื่อ path ย่อใน index.js ให้สร้างชื่อพาธนั้นไว้ app.get('/createtohere') แล้ว res.render('createtohere') หน้าที่สร้างด้วย ejs ไว้
