@@ -6,3 +6,4 @@
 5. body จัดให้ทุกอย่างอยู่ตรงกลางได้
 6. const p = req.params.id อันนี้เอาไว้ เรียกใช้ตอนจะเอาไอดีมาใช้ เผื่อต้องเปิด detail อีกหน้า
     const id = 'SELECT * FROM users WHERE id = ?'
+7.f<td> <button><a href="/detail/<%=d.id%>">Detail</a></button> </td> ส่วนอันนี้เอาไว้เป็นปุ่มกดไปอีกหน้า
