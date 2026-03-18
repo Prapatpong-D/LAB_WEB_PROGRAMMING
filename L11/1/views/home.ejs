@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Cookie</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="maincontainer">
+        <h1>Employee Information</h1>
+        <div class="formcontainer">
+            <form method="POST" action="/save">
+
+                <div class="formgroup">
+                    <h3>Employee ID:</h3>
+                    <input type="text" name="CustomerId" value="<%= data.CustomerId %>">
+                </div>
+
+                <div class="formgroup">
+                    <h3>FirstName:</h3>
+                    <input type="text" name="FirstName" value="<%= data.FirstName || '' %>">
+                </div>
+
+                <div class="formgroup">
+                    <h3>Lastname:</h3>
+                    <input type="text" name="LastName" value="<%= data.LastName || '' %>">
+                </div>
+
+                <div class="formgroup">
+                    <h3>Address:</h3>
+                    <input type="text" name="Address" value="<%= data.Address || '' %>">
+                </div>
+
+                <div class="formgroup">
+                    <h3>Email:</h3>
+                    <input type="text" name="Email" value="<%= data.Email || '' %>">
+                </div>
+
+                <div class="formgroup">
+                    <h3>Phone:</h3>
+                    <input type="text" name="Phone" value="<%= data.Phone || '' %>">
+                </div>
+
+                <div class="buttomform">
+                    <button type="submit">Save Data</button>
+                    <button type="button" onclick="window.location.href='/show' ">Show Data</button>
+                    <button type="button" onclick="window.location.href='/clear' "">Clear Data</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todolist</title>
+    <style>
+        body{
+            display: flex;
+            height: 50vh;
+            gap: 50px;
+        }
+        .maincontainer {
+            display: flex;
+            place-items: center ;
+            align-items: center;
+            justify-content: center;
+        }
+        .toper{
+            display: flex;
+            gap: 750px;
+            margin-left: 10px;
+        }
+        table{
+            border: 1px solid black;
+            box-shadow: 2px 2px greenyellow;
+            width: 1000px;
+            margin-left: 1%;
+            border-radius: 5px; 
+            border-collapse: collapse;
+
+        }
+
+        th,td {
+            line-height: 20px;
+            padding: 10px;
+            text-align: center;
+            border-collapse: separate;
+        }
+
+        button {
+            border-radius: 5px ;
+            height: 50px;
+            width: 100px;
+            color: white;
+            background-color: rgb(73, 175, 73);
+        }
+
+        .addcontainer {
+            margin-top: 30px;
+        }
+
+        form {
+            padding-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div class="toper">
+        <h1>Todos list</h1>
+        <button>Add Todos</button>
+    </div>
+    <div class="maincontainer">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>title</th>
+                    <th>deadline</th>
+                    <th>complete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach(d => { %>
+                <tr>
+                    <td><%=d.id%></td>
+                    <td><%=d.title%></td>
+                    <td><%=d.deadline%></td>
+                    <td><input type="checkbox" <% d.status == 1 ?  'checked' : '' %>></td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    
+    <div class="addcontainer">
+        <h1>Add Todolist</h1>
+        <div>
+            <form action="/api/todo" method="POST">
+
+                <div class="inform">
+                    <title>Title</title>
+                    <h3 >Title :</h3>
+                    <input type="text" name="title" placeholder="your todo here">
+                </div> 
+
+                <div class="inform">
+                    <title>Description</title>
+                    <h3 >Description :</h3>
+                    <input type="text" name="description" placeholder="your description here">
+                </div>
+
+                <div class="inform">
+                    <title>deadline</title>
+                    <h3 >deadline :</h3>
+                    <input type="date" name="deadline">
+                </div>
+                
+                <div class="inform">
+                    <button type="submit">Create todo sa</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Product</title>
+</head>
+<body>
+    
+    <div class="menucontainer">
+        <%data.forEach(d => { %>
+        <div class="card">
+            <img src="<%=d.image_url%>">
+            <h3><%=d.name%></h3>
+            <p><%=d.description%></p>
+            <a href="/detail/<%=d.product_id%>" type="button">Detail</a>
+        </div>  
+
+        <% }) %>
+        
+    </div>
+
+</body>
+</html>

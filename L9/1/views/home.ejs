@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+        }
+        table{
+            width: 1000px;
+            align-items: center;
+            justify-content: center;
+            border-collapse: collapse;
+            box-shadow: 5px 5px 5px black;
+            border: 2px solid black;
+        }
+        .tab{
+            justify-content: center ;
+            top: 50%;
+            left: 50%;
+        }
+        thead{
+            color: aliceblue;
+            background-color: black;
+        }
+        tbody {
+            background-color: azure;
+        }
+
+        th,td{ 
+            line-height:30px;
+            padding: 5px 5px 5px 5px;
+        }
+        button {
+            background-color: black;
+            color: aliceblue;
+        }
+        
+    </style>
+</head>
+<body>
+ 
+    <div class="tab">   
+        <h1>User List</h1>
+        <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach(d =>{  %>
+            <tr>
+                <td> <%= d.id %> </td>
+                <td> <%= d.first_name %> </td>
+                <td> <%= d.last_name %> </td>
+                <td> <%= d.username %> </td>
+                <td> <%= d.email %> </td>
+                <td> <button><a href="/detail/<%=d.id%>" >Detail</a></button> </td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+    </div>
+    
+
+</body>
+</html>

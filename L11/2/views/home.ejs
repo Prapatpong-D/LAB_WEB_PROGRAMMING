@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FODD RESRANT</title>
+    <style>
+        .navbar{
+            background-color: greenyellow;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            width: auto;
+        }
+        .navbarcontent{
+            padding: 20px;
+        }
+        .b{
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+            font-weight: bold;
+            padding-right: 20px;
+        }
+        h1{
+            justify-content: center;
+            display: flex;
+        }
+        .maincontainer{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 16px;
+        }
+        .cardfood{
+            background-color: aquamarine;
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cardfood > img{
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .cardfood h3, .cardfood h4, .cardfood p {
+            margin: 6px 0;
+        }
+
+        .cardfood a{
+            margin-top: 8px;
+            display: inline-block;
+            padding: 8px 12px;
+            background: #2b8a3e;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .btn-addcart {
+            margin-top: 8px;
+            padding: 8px 12px;
+            background: #2b8a3e;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            width: 100%;
+            max-width: 150px;
+        }
+
+        .btn-addcart:hover {
+            background: #1e6b2e;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbarcontent">
+            <a href="/" class="b">Menu</a>
+            <a href="/cart"class="b" type="button">Cart</a>
+        </div>
+    </div>
+    <h1>AUNTIE AUN</h1>
+    <div class="maincontainer">
+        <%data.forEach(d => { %>
+            <div class="cardfood">
+                <img src="<%=d.image_url%>">
+                <h3><%=d.name%></h3>
+                <h4><%=d.description%></h4>
+                <p><%=d.price%></p>
+                <form action="/addtocart" method="POST" style="width: 100%; display: flex; justify-content: center;">
+                    <input type="hidden" name="product_id" value="<%=d.product_id%>">
+                    <button type="submit" class="btn-addcart">Add to cart</button>
+                </form>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>

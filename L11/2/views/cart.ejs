@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .navbar{
+            background-color: greenyellow;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            width: auto;
+        }
+
+        .navbarcontent{
+            padding: 20px;
+        }
+
+        .b{
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+            font-weight: bold;
+            padding-right: 20px;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 16px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .cart-empty {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+        }
+
+        .cart-table {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+            overflow: hidden;
+        }
+
+        .cart-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cart-table th {
+            background-color: #2b8a3e;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .cart-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .cart-summary {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+            text-align: right;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .total-price {
+            font-size: 20px;
+            color: #2b8a3e;
+            font-weight: bold;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #ddd;
+        }
+
+        .btn-checkout {
+            background: #2b8a3e;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn-checkout:hover {
+            background: #1e6b2e;
+        }
+
+        .btn-continue {
+            background: #555;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-left: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-continue:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbarcontent">
+            <a href="/" class="b">Menu</a>
+            <a href="/cart" class="b">Cart</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Shopping Cart</h1>
+
+        <% if (cart.length === 0) { %>
+            <div class="cart-empty">
+                <h2>Your cart is empty</h2>
+                <p>Add items from the menu to get started!</p>
+                <a href="/" class="btn-continue" style="margin-top: 15px;">Continue Shopping</a>
+            </div>
+        <% } else { %>
+            <div class="cart-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% cart.forEach(item => { %>
+                            <tr>
+                                <td><%= item.name %></td>
+                                <td>$<%= item.price.toFixed(2) %></td>
+                                <td><%= item.qty %></td>
+                                <td>$<%= (item.price * item.qty).toFixed(2) %></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span>$<%= total.toFixed(2) %></span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span>Free</span>
+                </div>
+                <div class="total-price">
+                    <span>Total: $<%= total.toFixed(2) %></span>
+                </div>
+
+                <form action="/confirm" method="POST" style="display: inline;">
+                    <button class="btn-checkout" type="submit">Proceed to Checkout</button>
+                </form>
+                <a href="/" class="btn-continue">Continue Shopping</a>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
